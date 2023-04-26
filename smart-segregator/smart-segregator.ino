@@ -31,14 +31,16 @@ void garbage_classifier()
     Serial.print("Mositure: ");
     Serial.println(output_value);
 
-    if (output_value > 0)
+    delay(15000);
+
+    if (output_value > -50)
     {
-        servo.write(180);
+        servo.write(120);
         Serial.println("Wet");
     }
-    else if (output_value <= 0)
+    else if (output_value <= -50)
     {
-        servo.write(0);
+        servo.write(60);
         Serial.println("Dry");
     }
     else
@@ -47,7 +49,7 @@ void garbage_classifier()
         Serial.println("Neutral");
     }
 
-    delay(1000);
+    delay(2000);
 }
 
 void loop()
@@ -67,7 +69,7 @@ void loop()
     Serial.print("Distance: ");
     Serial.println(distance);
 
-    if (distance < 20)
+    if (distance < 10)
     {
         garbage_classifier();
     }
