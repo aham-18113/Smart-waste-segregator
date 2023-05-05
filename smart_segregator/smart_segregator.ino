@@ -71,6 +71,7 @@ void loop()
 
   if (distance < 10)
   {
+    delay(2000);
     garbage_classifier();
   }
   else
